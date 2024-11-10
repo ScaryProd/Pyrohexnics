@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbqbiselo13y6"]
+
+[ext_resource type="Texture2D" uid="uid://co53frli64quk" path="res://textures/Alvie/Logo.png" id="1_o6262"]
+[ext_resource type="Texture2D" uid="uid://bpc476r2kilqv" path="res://textures/Alvie/Title.png" id="2_4l2fm"]
+[ext_resource type="Texture2D" uid="uid://bemy6y4u10wor" path="res://textures/Alvie/StartGame.png" id="3_ql312"]
+[ext_resource type="Script" path="res://sceneTransitionButton.gd" id="3_uan3m"]
+[ext_resource type="Texture2D" uid="uid://b4a2cceqmwl4y" path="res://textures/Alvie/Exit.png" id="4_gwl8r"]
+[ext_resource type="Texture2D" uid="uid://n0nbyri7cew3" path="res://textures/Alvie/Options.png" id="5_0c14l"]
+[ext_resource type="Texture2D" uid="uid://8nu4a8mq7nfu" path="res://textures/Alvie/Version.png" id="6_goby7"]
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_4l2fm")
+stretch_mode = 2
+
+[node name="MenuOptions" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 30
+
+[node name="StartGame" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+layout_mode = 2
+icon = ExtResource("3_ql312")
+script = ExtResource("3_uan3m")
+SceneTarget = "res://example/example.tscn"
+
+[node name="Options" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+layout_mode = 2
+icon = ExtResource("5_0c14l")
+script = ExtResource("3_uan3m")
+
+[node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+layout_mode = 2
+icon = ExtResource("4_gwl8r")
+script = ExtResource("3_uan3m")
+
+[node name="versionlabel" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_goby7")
+stretch_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="logo" type="TextureRect" parent="HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_o6262")

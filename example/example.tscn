@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://buh3412b0qtpp"]
+
+[ext_resource type="PackedScene" uid="uid://biim2lxri0akl" path="res://example/field/field.tscn" id="1_fkhir"]
+[ext_resource type="PackedScene" uid="uid://3trgkf0u68ry" path="res://example/card/card.tscn" id="2_5f2as"]
+[ext_resource type="Texture2D" uid="uid://riufn4lfok4d" path="res://textures/pe-cat.png" id="3_o1nxl"]
+[ext_resource type="Texture2D" uid="uid://c2h81gnj1ydmr" path="res://textures/pe-crosshair.png" id="4_xia2k"]
+[ext_resource type="Texture2D" uid="uid://c3ppidyf62v71" path="res://textures/pe-hourglass.png" id="5_j36ic"]
+[ext_resource type="Texture2D" uid="uid://bfnb801wgt5sm" path="res://textures/potionBottle.png" id="6_5006q"]
+[ext_resource type="Texture2D" uid="uid://bemy6y4u10wor" path="res://textures/Alvie/StartGame.png" id="6_rqf78"]
+[ext_resource type="Script" path="res://sceneTransitionButton.gd" id="7_4abe7"]
+
+[node name="Game" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["fields"]]
+
+[node name="Field1" parent="CanvasLayer" instance=ExtResource("1_fkhir")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -211.0
+offset_top = -573.0
+offset_right = 210.0
+offset_bottom = -423.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Card" parent="CanvasLayer/Field1/CardsHolder" index="0" instance=ExtResource("2_5f2as")]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Field1/CardsHolder/Card"]
+position = Vector2(51.5, 75.5)
+scale = Vector2(5, 7.562)
+texture = ExtResource("3_o1nxl")
+
+[node name="Card2" parent="CanvasLayer/Field1/CardsHolder" index="1" instance=ExtResource("2_5f2as")]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Field1/CardsHolder/Card2"]
+position = Vector2(51.5, 75.5)
+scale = Vector2(5, 7.562)
+texture = ExtResource("4_xia2k")
+
+[node name="Card3" parent="CanvasLayer/Field1/CardsHolder" index="2" instance=ExtResource("2_5f2as")]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Field1/CardsHolder/Card3"]
+position = Vector2(51.5, 75)
+scale = Vector2(5, 4.769)
+texture = ExtResource("5_j36ic")
+
+[node name="Field2" parent="CanvasLayer" instance=ExtResource("1_fkhir")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -267.0
+offset_right = 211.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Field2"]
+position = Vector2(214.5, 74.5)
+scale = Vector2(1.2, 1.306)
+texture = ExtResource("6_5006q")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+icon = ExtResource("6_rqf78")
+script = ExtResource("7_4abe7")
+SceneTarget = "res://explosion.tscn"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 346.0
+offset_top = 281.0
+offset_right = 810.0
+offset_bottom = 304.0
+text = "Note: This screen is useless rn, just click on the bottom right"
+
+[editable path="CanvasLayer/Field1"]
