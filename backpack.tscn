@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://qupo5vy6n0jo"]
+
+[ext_resource type="Script" path="res://gui.gd" id="1_18ppo"]
+[ext_resource type="Texture2D" uid="uid://d4caa5fwn6sh3" path="res://textures/pe-triangle.png" id="2_ke6mm"]
+[ext_resource type="Texture2D" uid="uid://bfnb801wgt5sm" path="res://textures/potionBottle.png" id="3_43nx2"]
+[ext_resource type="Texture2D" uid="uid://b3fetu60l4fw1" path="res://textures/Menu/Button-Start.png" id="4_0u4b1"]
+[ext_resource type="Texture2D" uid="uid://bemy6y4u10wor" path="res://textures/Alvie/StartGame.png" id="4_dsuyr"]
+[ext_resource type="Script" path="res://ToExplosionButton.gd" id="5_pgnut"]
+[ext_resource type="Script" path="res://test_button.gd" id="6_yit3u"]
+
+[node name="Backpack" type="Node2D"]
+
+[node name="GUI" type="CanvasLayer" parent="."]
+script = ExtResource("1_18ppo")
+
+[node name="Panel" type="Panel" parent="GUI"]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 1088.0
+offset_bottom = 576.0
+metadata/_edit_lock_ = true
+
+[node name="Inv" type="GridContainer" parent="GUI"]
+unique_name_in_owner = true
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 448.0
+offset_bottom = 512.0
+columns = 3
+
+[node name="Potion" type="GridContainer" parent="GUI"]
+unique_name_in_owner = true
+offset_left = 672.0
+offset_top = 128.0
+offset_right = 992.0
+offset_bottom = 324.0
+columns = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
+offset_left = 760.0
+offset_top = 324.0
+offset_right = 760.0
+offset_bottom = 324.0
+
+[node name="Arrow" type="TextureRect" parent="GUI"]
+offset_left = 608.0
+offset_top = 256.0
+offset_right = 672.0
+offset_bottom = 320.0
+rotation = 1.5708
+texture = ExtResource("2_ke6mm")
+
+[node name="Bottle" type="TextureRect" parent="GUI"]
+offset_left = 760.0
+offset_top = 324.0
+offset_right = 928.0
+offset_bottom = 488.0
+texture = ExtResource("3_43nx2")
+
+[node name="Button" type="Button" parent="GUI"]
+offset_left = 1000.0
+offset_top = 544.0
+offset_right = 1088.0
+offset_bottom = 572.0
+disabled = true
+icon = ExtResource("4_0u4b1")
+script = ExtResource("5_pgnut")
+SceneTarget = "res://explosion2.tscn"
+
+[node name="testButton" type="Button" parent="GUI"]
+offset_left = 792.0
+offset_top = 528.0
+offset_right = 880.0
+offset_bottom = 556.0
+icon = ExtResource("4_dsuyr")
+script = ExtResource("6_yit3u")

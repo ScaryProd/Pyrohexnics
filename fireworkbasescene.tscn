@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6q8ttmdg14ji"]
+[gd_scene load_steps=16 format=3 uid="uid://c6q8ttmdg14ji"]
 
 [ext_resource type="Script" path="res://fireworkbasescene.gd" id="1_7kw6j"]
 [ext_resource type="Script" path="res://rising.gd" id="1_xftym"]
@@ -13,11 +13,14 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_j50v7"]
 curve = SubResource("Curve_sg6eo")
 
+[sub_resource type="CurveTexture" id="CurveTexture_v42s2"]
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gy4q2"]
 lifetime_randomness = 0.2
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
+emission_box_extents = Vector3(50, 1, 1)
+angle_curve = SubResource("CurveTexture_v42s2")
 direction = Vector3(0, -1, 0)
 spread = 0.0
 initial_velocity_min = 100.0
@@ -27,14 +30,13 @@ alpha_curve = SubResource("CurveTexture_j50v7")
 sub_emitter_mode = 2
 sub_emitter_amount_at_end = 32
 
-[sub_resource type="Gradient" id="Gradient_3qpn0"]
-offsets = PackedFloat32Array(0.00649351, 1)
-colors = PackedColorArray(0.0470588, 0.784314, 0, 1, 0.956863, 0.396078, 0.364706, 0)
+[sub_resource type="Gradient" id="Gradient_7d7a0"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6eidh"]
-gradient = SubResource("Gradient_3qpn0")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d1m4d"]
+gradient = SubResource("Gradient_7d7a0")
 width = 1
-fill_to = Vector2(1, 1)
+fill_to = Vector2(0, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jp5u0"]
 blend_mode = 1
@@ -75,7 +77,7 @@ emitting = false
 amount = 1
 sub_emitter = NodePath("../Blast")
 process_material = SubResource("ParticleProcessMaterial_gy4q2")
-texture = SubResource("GradientTexture2D_6eidh")
+texture = SubResource("GradientTexture2D_d1m4d")
 one_shot = true
 trail_enabled = true
 script = ExtResource("1_xftym")

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://vgnq5kyng8re"]
+
+[ext_resource type="Script" path="res://items/ItemData.gd" id="1_2q2y5"]
+[ext_resource type="Texture2D" uid="uid://bg57arfp3f4sm" path="res://textures/pe-dollar.png" id="2_e7p8m"]
+
+[sub_resource type="Gradient" id="Gradient_aemh2"]
+colors = PackedColorArray(0.886353, 0.865715, 1.15514e-06, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fgej1"]
+gradient = SubResource("Gradient_aemh2")
+fill_to = Vector2(0, 1)
+
+[resource]
+script = ExtResource("1_2q2y5")
+type = 4
+name = "Dollar"
+description = "Authentic american dollar"
+texture = ExtResource("2_e7p8m")
+amount = 1
+initialVelocity = 1
+color = SubResource("GradientTexture2D_fgej1")

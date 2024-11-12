@@ -12,11 +12,16 @@ func _ready() -> void:
 	
 
 func _button_pressed():
-	print("Let the magic begin!")
-	var fireworkInstance = firework.instantiate()
-	fireworkInstance.spawnPos = self.position;
+	print("Let the magic begin!");
+	var currentData = PlayerVariables.explosionItems[0]
+	var fireworkInstance = firework.instantiate();
+	#fireworkInstance.spawnPos = self.position;
+	fireworkInstance.scaleVar = 1;
+	fireworkInstance.amountVar = currentData.amount;
+	fireworkInstance.texture = currentData.texture;
+	fireworkInstance.color = currentData.color;
 	fireworkInstance._startEmission();
-	main.add_child.call_deferred(fireworkInstance);
+	self.add_child.call_deferred(fireworkInstance);
 	fireworkInstance._startEmission();
 	
 	

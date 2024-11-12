@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://5abxfoa7e212"]
+
+[ext_resource type="Script" path="res://items/ItemData.gd" id="1_ehqiv"]
+[ext_resource type="Texture2D" uid="uid://b12jfs2dpnmgb" path="res://textures/pe-flower.png" id="2_dp7te"]
+
+[sub_resource type="Gradient" id="Gradient_yjqh7"]
+colors = PackedColorArray(0.998303, 0, 0.105627, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tei4v"]
+gradient = SubResource("Gradient_yjqh7")
+fill_to = Vector2(0, 1)
+
+[resource]
+script = ExtResource("1_ehqiv")
+type = 0
+name = "Crysanthemum"
+description = "This is a flower, a flower!"
+texture = ExtResource("2_dp7te")
+amount = 3
+initialVelocity = 5
+color = SubResource("GradientTexture2D_tei4v")

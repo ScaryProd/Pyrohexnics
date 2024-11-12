@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxamodif1b7ip"]
+
+[ext_resource type="Texture2D" uid="uid://cq2glrlxmyhvg" path="res://textures/Backgrounds/Phex-BG.png" id="1_qfavg"]
+[ext_resource type="Script" path="res://Cauldron.gd" id="2_bqso6"]
+[ext_resource type="Texture2D" uid="uid://cqg1ugiudaum2" path="res://textures/Cauldron/PHex-Cauldron-front.png" id="2_oeit0"]
+[ext_resource type="Script" path="res://button.gd" id="3_kw44w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvs20"]
+radius = 55.9547
+height = 165.786
+
+[node name="main" type="Node2D"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("1_qfavg")
+expand_mode = 1
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+build_mode = 1
+polygon = PackedVector2Array(-3, 715, 171, 622, 393, 587, 638, 573, 894, 587, 1104, 628, 1277, 714)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(642, 625)
+mass = 1000.0
+gravity_scale = 0.0
+script = ExtResource("2_bqso6")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hvs20")
+
+[node name="TextureRect" type="TextureRect" parent="RigidBody2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -72.0
+offset_right = 77.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oeit0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="RigidBody2D"]
+offset_left = -46.0
+offset_top = -55.0
+offset_right = 49.0
+offset_bottom = 55.0
+focus_mode = 0
+flat = true
+script = ExtResource("3_kw44w")
