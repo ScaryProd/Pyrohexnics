@@ -104,6 +104,7 @@ texture = ExtResource("3_jxhla")
 
 [node name="Potion" type="GridContainer" parent="GUI/Bottle"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 66.0
 offset_top = 84.0
 offset_right = 186.0
@@ -116,6 +117,13 @@ offset_top = 600.0
 offset_right = 265.0
 offset_bottom = 623.0
 text = "Click to reroll items ->"
+
+[node name="Label3" type="Label" parent="GUI"]
+offset_left = 504.0
+offset_top = 448.0
+offset_right = 694.0
+offset_bottom = 471.0
+text = "Items may be corrupted!"
 
 [node name="Label2" type="Label" parent="GUI"]
 offset_left = 512.0

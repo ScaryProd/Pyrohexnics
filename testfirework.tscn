@@ -1,6 +1,25 @@
-[gd_scene format=3 uid="uid://c64ag1vaidwoe"]
+[gd_scene load_steps=3 format=3 uid="uid://c64ag1vaidwoe"]
+
+[sub_resource type="Gradient" id="Gradient_t1p3m"]
+offsets = PackedFloat32Array(0, 0.486667, 1)
+colors = PackedColorArray(0, 0, 1, 1, 0.139062, 0.477781, 9.62615e-08, 1, 1, 0, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6i7bc"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 20
+one_shot = true
+spread = 180.0
+initial_velocity_min = 222.22
+initial_velocity_max = 333.33
+angular_velocity_min = 363.64
+angular_velocity_max = 363.64
+color_ramp = SubResource("Gradient_t1p3m")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_6i7bc")

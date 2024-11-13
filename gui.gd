@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var InvSize = 9
-var BottleSize = 3
+var BottleSize = 1
 var itemsLoad = [
 	"res://items/baseItem.tres",
 	"res://items/money.tres",
@@ -13,22 +13,33 @@ var itemsLoad = [
 	"res://items/AllItems/item2.tres",
 	"res://items/AllItems/item2.tres",
 ]
+#enum Type {MEME, NATURAL, TYPICAL, ICON}
 var allTextures = [
-	"res://textures/pe-final/pe-alien.png",
-	"res://textures/pe-final/pe-corn.png",
-	"res://textures/pe-final/pe-dollar.png",
-	"res://textures/pe-final/pe-duck.png",
-	"res://textures/pe-final/pe-hourglass.png",
-	"res://textures/pe-final/pe-meat.png",
-	"res://textures/pe-final/pe-person.png",
-	"res://textures/pe-final/pe-question.png",
-	"res://textures/pe-final/pe-red.png",
-	"res://textures/pe-final/pe-shroom.png",
-	"res://textures/pe-final/pe-skull.png",
-	"res://textures/pe-final/pe-smile-export.png",
-	"res://textures/pe-final/pe-smile.png",
-	"res://textures/pe-final/pe-v.png",
-]
+	["res://textures/Phex-DesignsFinal/pe-alien.png", ItemData.Type.MEME],
+	["res://textures/Phex-DesignsFinal/pe-bean.png", ItemData.Type.NATURAL],
+	["res://textures/Phex-DesignsFinal/pe-cat.png", ItemData.Type.NATURAL],
+	["res://textures/Phex-DesignsFinal/pe-circle.png", ItemData.Type.TYPICAL],
+	["res://textures/Phex-DesignsFinal/pe-corn.png", ItemData.Type.NATURAL],
+	["res://textures/Phex-DesignsFinal/pe-crosshair.png", ItemData.Type.TYPICAL],
+	["res://textures/Phex-DesignsFinal/pe-dollar.png", ItemData.Type.ICON],
+	["res://textures/Phex-DesignsFinal/pe-duck.png", ItemData.Type.NATURAL],
+	["res://textures/Phex-DesignsFinal/pe-eye.png", ItemData.Type.NATURAL],
+	["res://textures/Phex-DesignsFinal/pe-geml.png", ItemData.Type.ICON],
+	["res://textures/Phex-DesignsFinal/pe-heart.png", ItemData.Type.TYPICAL],
+	["res://textures/Phex-DesignsFinal/pe-hourglass.png", ItemData.Type.ICON],
+	["res://textures/Phex-DesignsFinal/pe-meat.png", ItemData.Type.MEME],
+	["res://textures/Phex-DesignsFinal/pe-nirv.png", ItemData.Type.MEME],
+	["res://textures/Phex-DesignsFinal/pe-peanut.png", ItemData.Type.NATURAL],
+	["res://textures/Phex-DesignsFinal/pe-person.png", ItemData.Type.NATURAL],
+	["res://textures/Phex-DesignsFinal/pe-question.png", ItemData.Type.ICON],
+	["res://textures/Phex-DesignsFinal/pe-red.png", ItemData.Type.TYPICAL],
+	["res://textures/Phex-DesignsFinal/pe-shroom.png", ItemData.Type.MEME],
+	["res://textures/Phex-DesignsFinal/pe-skull.png", ItemData.Type.NATURAL],
+	["res://textures/Phex-DesignsFinal/pe-smileChat.png", ItemData.Type.MEME],
+	["res://textures/Phex-DesignsFinal/pe-square.png", ItemData.Type.TYPICAL],
+	["res://textures/Phex-DesignsFinal/pe-sun.png", ItemData.Type.TYPICAL],
+	["res://textures/Phex-DesignsFinal/pe-v.png", ItemData.Type.MEME],
+	]
 var availableTextures = allTextures;
 
 # Called when the node enters the scene tree for the first time.
@@ -37,13 +48,13 @@ func _ready() -> void:
 	
 	for i in InvSize:
 		var slot := InventorySlot.new()
-		slot.init(ItemData.Type.NATURE, Vector2(80,80))
+		slot.init(ItemData.Type.NATURAL, Vector2(80,80))
 		%Inv.add_child(slot)
 	
 	for i in BottleSize:
 		var cauldron := InventorySlot.new()
-		cauldron.init(ItemData.Type.NATURE, Vector2(112,112))
-		#cauldron.self_modulate = Color("ffffff00")
+		cauldron.init(ItemData.Type.NATURAL, Vector2(112,112))
+		cauldron.self_modulate = Color("ffffff00")
 		%Potion.add_child(cauldron)
 		
 	for i in itemsLoad.size():
@@ -66,7 +77,7 @@ func generateItems():
 	# then restore them so we can put items in them again
 	for i in InvSize:
 		var slot := InventorySlot.new()
-		slot.init(ItemData.Type.NATURE, Vector2(80,80))
+		slot.init(ItemData.Type.MEME, Vector2(80,80))
 		%Inv.add_child(slot)
 		
 	for i in itemsLoad.size():
@@ -80,15 +91,15 @@ func _process(delta: float) -> void:
 	pass
 
 func generateItem():
-	var itemType = randi_range(0,4);
-	var itemName = "Placeholder"
-	var itemDescription = "Placeholder %s" % ItemData.Type.keys()[itemType];
-	
 	# image logic
 	var numberForImage = randi_range(0,availableTextures.size() - 1);
-	var itemTexture = ImageTexture.create_from_image(Image.load_from_file(availableTextures[numberForImage]));
-	availableTextures[numberForImage]
-	availableTextures.erase(itemTexture);
+	var itemTexture = ImageTexture.create_from_image(Image.load_from_file(availableTextures[numberForImage][0]));
+	var itemType = availableTextures[numberForImage][1];
+	#availableTextures[numberForImage]
+	availableTextures.pop_at(numberForImage);
+	
+	var itemName = "Placeholder"
+	var itemDescription = "Placeholder %s" % ItemData.Type.keys()[itemType];
 	
 	#Color logic
 	var itemAmount = randi_range(0,1000);

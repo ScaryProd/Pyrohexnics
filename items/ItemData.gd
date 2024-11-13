@@ -1,7 +1,7 @@
 class_name ItemData
 extends Resource
 
-enum Type {NATURE, ARTIFICIAL, HUMAN, CELESTIAL, GREED}
+enum Type {MEME, NATURAL, TYPICAL, ICON}
 
 @export var type: Type
 @export var name: String

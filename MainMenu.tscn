@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbqbiselo13y6"]
+[gd_scene load_steps=16 format=3 uid="uid://dbqbiselo13y6"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_8ivto"]
 [ext_resource type="AudioStream" uid="uid://4eb283r7jxil" path="res://sounds/PyroTechnicksDemo2Mp3.mp3" id="1_i6y7h"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://volumeSlider.gd" id="3_qf7g6"]
 [ext_resource type="Script" path="res://sceneTransitionButton.gd" id="3_uan3m"]
 [ext_resource type="Texture2D" uid="uid://chkl3f2nf7b4" path="res://textures/Menu/Button-Options.png" id="4_g8coh"]
+[ext_resource type="Texture2D" uid="uid://bx8eow3jm4st5" path="res://textures/Menu/Button-MainMenu.png" id="4_vxff0"]
 [ext_resource type="Script" path="res://back.gd" id="5_545ou"]
 [ext_resource type="Texture2D" uid="uid://d12vlmx0cdy5w" path="res://textures/Menu/Button-Exit.png" id="6_r4c6a"]
 [ext_resource type="Script" path="res://optionsButton.gd" id="7_sakgt"]
@@ -21,7 +22,7 @@ script = ExtResource("1_8ivto")
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_i6y7h")
 volume_db = -11.815
-parameters/looping = false
+parameters/looping = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -2.0
@@ -31,6 +32,8 @@ offset_bottom = 719.0
 texture = ExtResource("1_k2lat")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect"]
+visible = false
+layout_mode = 0
 offset_left = -1280.0
 offset_top = -1.0
 offset_bottom = 719.0
@@ -45,16 +48,18 @@ text = "Sound:"
 
 [node name="Back" type="Button" parent="Label"]
 custom_minimum_size = Vector2(300, 75)
+layout_mode = 0
 offset_left = -11.0
 offset_top = 159.0
 offset_right = 289.0
 offset_bottom = 234.0
-icon = ExtResource("4_g8coh")
+icon = ExtResource("4_vxff0")
 flat = true
 expand_icon = true
 script = ExtResource("5_545ou")
 
 [node name="Label2" type="Label" parent="Label"]
+layout_mode = 0
 offset_left = -1.0
 offset_top = 78.0
 offset_right = 53.0
@@ -62,12 +67,14 @@ offset_bottom = 101.0
 text = "FOV Slider"
 
 [node name="HSlider" type="HSlider" parent="Label/Label2"]
+layout_mode = 0
 offset_top = 30.0
 offset_right = 220.0
 offset_bottom = 69.0
 value = 75.0
 
 [node name="HSlider" type="HSlider" parent="Label"]
+layout_mode = 0
 offset_top = 30.0
 offset_right = 220.0
 offset_bottom = 69.0
@@ -78,6 +85,7 @@ script = ExtResource("3_qf7g6")
 bus_name = "Master"
 
 [node name="Label" type="Label" parent="Label"]
+layout_mode = 0
 offset_left = 449.0
 offset_top = -25.0
 offset_right = 587.0
