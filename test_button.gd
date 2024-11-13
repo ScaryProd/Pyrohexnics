@@ -13,6 +13,7 @@ func _button_pressed():
 				#print("Added %s" % x.get_child(0).data);
 			
 		
+	PlayerVariables.explosionItems = [];
 	PlayerVariables.explosionItems.append(%Potion.get_child(0).get_child(0).data)
 	print(PlayerVariables.explosionItems[0].name)
 	$"../Button".disabled = false

@@ -10,7 +10,6 @@ func _ready():
 	self.pressed.connect(self._button_pressed)
 
 func _button_pressed():
-	print("Hello world!")
 	if type == ButtonType.Start:
 		get_tree().change_scene_to_file(SceneTarget)
 	elif type == ButtonType.Options:

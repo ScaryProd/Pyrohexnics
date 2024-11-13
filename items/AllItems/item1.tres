@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://ctpy6m7h5mic6"]
+
+[ext_resource type="Script" path="res://items/ItemData.gd" id="1_r30y5"]
+[ext_resource type="Texture2D" uid="uid://b0mgopdkedwex" path="res://textures/pe-final/pe-alien.png" id="2_t5184"]
+
+[sub_resource type="Gradient" id="Gradient_uravw"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l68wo"]
+gradient = SubResource("Gradient_uravw")
+width = 1
+fill_to = Vector2(0, 1)
+
+[resource]
+script = ExtResource("1_r30y5")
+type = 3
+name = "Alien"
+description = "Authentic non-american alien"
+texture = ExtResource("2_t5184")
+amount = 3
+initialVelocity = 1
+color = SubResource("GradientTexture2D_l68wo")

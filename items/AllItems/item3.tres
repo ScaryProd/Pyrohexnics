@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dpvnhprks2b2h"]
+
+[ext_resource type="Script" path="res://items/ItemData.gd" id="1_60vrq"]
+[ext_resource type="Texture2D" uid="uid://dnlpe8eve65ys" path="res://textures/pe-final/pe-duck.png" id="2_0kx8d"]
+
+[sub_resource type="Gradient" id="Gradient_aemh2"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fgej1"]
+gradient = SubResource("Gradient_aemh2")
+fill_to = Vector2(0, 1)
+
+[resource]
+script = ExtResource("1_60vrq")
+type = 0
+name = "Duck"
+description = "Escaped abDUCKtion"
+texture = ExtResource("2_0kx8d")
+amount = 1
+initialVelocity = 1
+color = SubResource("GradientTexture2D_fgej1")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxamodif1b7ip"]
+[gd_scene load_steps=8 format=3 uid="uid://dxamodif1b7ip"]
 
 [ext_resource type="Texture2D" uid="uid://cq2glrlxmyhvg" path="res://textures/Backgrounds/Phex-BG.png" id="1_qfavg"]
 [ext_resource type="Script" path="res://Cauldron.gd" id="2_bqso6"]
 [ext_resource type="Texture2D" uid="uid://cqg1ugiudaum2" path="res://textures/Cauldron/PHex-Cauldron-front.png" id="2_oeit0"]
 [ext_resource type="Script" path="res://button.gd" id="3_kw44w"]
+[ext_resource type="Texture2D" uid="uid://m3fca5np6qo6" path="res://textures/pe-final/pe-v.png" id="5_62onv"]
+[ext_resource type="Script" path="res://sceneTransitionButton.gd" id="6_yuyjp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hvs20"]
 radius = 55.9547
@@ -62,3 +64,14 @@ offset_bottom = 55.0
 focus_mode = 0
 flat = true
 script = ExtResource("3_kw44w")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 120.0
+offset_top = 600.0
+offset_right = 144.0
+offset_bottom = 624.0
+rotation = 1.57079
+scale = Vector2(5, 5)
+icon = ExtResource("5_62onv")
+script = ExtResource("6_yuyjp")
+SceneTarget = "res://backpack.tscn"

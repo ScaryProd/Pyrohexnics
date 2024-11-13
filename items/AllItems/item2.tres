@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://vianp8bv3s8b"]
+
+[ext_resource type="Script" path="res://items/ItemData.gd" id="1_5q52l"]
+[ext_resource type="Texture2D" uid="uid://dc2r728mm4b8j" path="res://textures/pe-final/pe-meat.png" id="2_sqvji"]
+
+[sub_resource type="Gradient" id="Gradient_aemh2"]
+colors = PackedColorArray(0.718626, 0.432692, 0.324011, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fgej1"]
+gradient = SubResource("Gradient_aemh2")
+fill_to = Vector2(0, 1)
+
+[resource]
+script = ExtResource("1_5q52l")
+type = 2
+name = "Meat"
+description = "Vinny's."
+texture = ExtResource("2_sqvji")
+amount = 6
+initialVelocity = 1
+color = SubResource("GradientTexture2D_fgej1")

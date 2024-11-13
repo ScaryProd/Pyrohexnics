@@ -1,14 +1,17 @@
 [gd_scene load_steps=8 format=3 uid="uid://qupo5vy6n0jo"]
 
 [ext_resource type="Script" path="res://gui.gd" id="1_18ppo"]
+[ext_resource type="Texture2D" uid="uid://cq2glrlxmyhvg" path="res://textures/Backgrounds/Phex-BG.png" id="1_xr5if"]
 [ext_resource type="Texture2D" uid="uid://d4caa5fwn6sh3" path="res://textures/pe-triangle.png" id="2_ke6mm"]
-[ext_resource type="Texture2D" uid="uid://bfnb801wgt5sm" path="res://textures/potionBottle.png" id="3_43nx2"]
-[ext_resource type="Texture2D" uid="uid://b3fetu60l4fw1" path="res://textures/Menu/Button-Start.png" id="4_0u4b1"]
-[ext_resource type="Texture2D" uid="uid://bemy6y4u10wor" path="res://textures/Alvie/StartGame.png" id="4_dsuyr"]
+[ext_resource type="Texture2D" uid="uid://0y21qsyg3d7t" path="res://textures/Cauldron/potionBottle.png" id="3_jxhla"]
+[ext_resource type="Texture2D" uid="uid://m3fca5np6qo6" path="res://textures/pe-final/pe-v.png" id="4_l0vf4"]
 [ext_resource type="Script" path="res://ToExplosionButton.gd" id="5_pgnut"]
 [ext_resource type="Script" path="res://test_button.gd" id="6_yit3u"]
 
 [node name="Backpack" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture = ExtResource("1_xr5if")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 script = ExtResource("1_18ppo")
@@ -16,24 +19,15 @@ script = ExtResource("1_18ppo")
 [node name="Panel" type="Panel" parent="GUI"]
 offset_left = 64.0
 offset_top = 64.0
-offset_right = 1088.0
-offset_bottom = 576.0
-metadata/_edit_lock_ = true
+offset_right = 1216.0
+offset_bottom = 680.0
 
 [node name="Inv" type="GridContainer" parent="GUI"]
 unique_name_in_owner = true
-offset_left = 128.0
-offset_top = 128.0
-offset_right = 448.0
-offset_bottom = 512.0
-columns = 3
-
-[node name="Potion" type="GridContainer" parent="GUI"]
-unique_name_in_owner = true
-offset_left = 672.0
-offset_top = 128.0
-offset_right = 992.0
-offset_bottom = 324.0
+offset_left = 192.0
+offset_top = 224.0
+offset_right = 520.0
+offset_bottom = 576.0
 columns = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
@@ -43,34 +37,56 @@ offset_right = 760.0
 offset_bottom = 324.0
 
 [node name="Arrow" type="TextureRect" parent="GUI"]
-offset_left = 608.0
-offset_top = 256.0
-offset_right = 672.0
-offset_bottom = 320.0
+offset_left = 672.0
+offset_top = 336.0
+offset_right = 736.0
+offset_bottom = 400.0
 rotation = 1.5708
 texture = ExtResource("2_ke6mm")
 
 [node name="Bottle" type="TextureRect" parent="GUI"]
-offset_left = 760.0
-offset_top = 324.0
-offset_right = 928.0
-offset_bottom = 488.0
-texture = ExtResource("3_43nx2")
+custom_minimum_size = Vector2(100, 100)
+offset_left = 824.0
+offset_top = 288.0
+offset_right = 1068.0
+offset_bottom = 546.0
+texture = ExtResource("3_jxhla")
+
+[node name="Potion" type="GridContainer" parent="GUI"]
+unique_name_in_owner = true
+offset_left = 890.0
+offset_top = 372.0
+offset_right = 1010.0
+offset_bottom = 500.0
+columns = 3
 
 [node name="Button" type="Button" parent="GUI"]
-offset_left = 1000.0
-offset_top = 544.0
-offset_right = 1088.0
-offset_bottom = 572.0
+offset_left = 1088.0
+offset_top = 672.0
+offset_right = 1112.0
+offset_bottom = 696.0
+rotation = -1.57079
+scale = Vector2(5, 5)
+size_flags_horizontal = 3
+size_flags_vertical = 10
 disabled = true
-icon = ExtResource("4_0u4b1")
+icon = ExtResource("4_l0vf4")
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("5_pgnut")
 SceneTarget = "res://explosion2.tscn"
 
 [node name="testButton" type="Button" parent="GUI"]
-offset_left = 792.0
-offset_top = 528.0
-offset_right = 880.0
-offset_bottom = 556.0
-icon = ExtResource("4_dsuyr")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 240.0
+offset_top = 232.0
+offset_right = 365.0
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Confirm potion selection"
 script = ExtResource("6_yit3u")
