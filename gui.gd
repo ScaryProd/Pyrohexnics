@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var InvSize = 9
-var BottleSize = 1
+var BottleSize = 3
 var itemsLoad = [
 	"res://items/baseItem.tres",
 	"res://items/money.tres",
@@ -40,16 +40,40 @@ func _ready() -> void:
 		slot.init(ItemData.Type.NATURE, Vector2(80,80))
 		%Inv.add_child(slot)
 	
+	for i in BottleSize:
+		var cauldron := InventorySlot.new()
+		cauldron.init(ItemData.Type.NATURE, Vector2(112,112))
+		#cauldron.self_modulate = Color("ffffff00")
+		%Potion.add_child(cauldron)
+		
 	for i in itemsLoad.size():
 		var item = InventoryItem.new();
 		item.init(generateItem());
 		%Inv.get_child(i).add_child(item)
+
+func generateItems(): 
+	# restore textures so we can use them again
+	availableTextures = allTextures;
 	
-	for i in BottleSize:
-		var cauldron := InventorySlot.new()
-		cauldron.init(ItemData.Type.NATURE, Vector2(112,112))
-		cauldron.self_modulate = Color("ffffff00")
-		%Potion.add_child(cauldron)
+	#delete the children slots in the inventory grid
+	if %Inv.get_child_count() > 0:
+		var children = %Inv.get_children()
+		for c in children:
+			%Inv.remove_child(c)
+			c.queue_free()
+			
+	
+	# then restore them so we can put items in them again
+	for i in InvSize:
+		var slot := InventorySlot.new()
+		slot.init(ItemData.Type.NATURE, Vector2(80,80))
+		%Inv.add_child(slot)
+		
+	for i in itemsLoad.size():
+		var item = InventoryItem.new();
+		item.init(generateItem());
+		%Inv.get_child(i).add_child(item)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -67,8 +91,8 @@ func generateItem():
 	availableTextures.erase(itemTexture);
 	
 	#Color logic
-	var itemAmount = randi_range(0,100);
-	var itemInitialVelocity = randi_range(0, 3);
+	var itemAmount = randi_range(0,1000);
+	var itemInitialVelocity = randi_range(0, 1000);
 	var itemColor = GradientTexture2D.new()
 	itemColor.draw(RID(), Vector2(0,0), Color(randi_range(1,9),randi_range(1,9),randi_range(1,9),randi_range(1,9)), true);
 	

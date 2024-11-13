@@ -1,22 +1,104 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbqbiselo13y6"]
+[gd_scene load_steps=15 format=3 uid="uid://dbqbiselo13y6"]
 
-[ext_resource type="Texture2D" uid="uid://cq2glrlxmyhvg" path="res://textures/Backgrounds/Phex-BG.png" id="1_iuwbt"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_8ivto"]
+[ext_resource type="AudioStream" uid="uid://4eb283r7jxil" path="res://sounds/PyroTechnicksDemo2Mp3.mp3" id="1_i6y7h"]
+[ext_resource type="Texture2D" uid="uid://bkyjebk6pss8" path="res://textures/Menu/Phex-BG.png" id="1_k2lat"]
 [ext_resource type="Texture2D" uid="uid://co53frli64quk" path="res://textures/Alvie/Logo.png" id="1_o6262"]
 [ext_resource type="Texture2D" uid="uid://fhrtvkrr4r7p" path="res://textures/Menu/titlename.png" id="1_twsij"]
 [ext_resource type="Texture2D" uid="uid://b3fetu60l4fw1" path="res://textures/Menu/Button-Start.png" id="2_eu4xr"]
+[ext_resource type="Script" path="res://volumeSlider.gd" id="3_qf7g6"]
 [ext_resource type="Script" path="res://sceneTransitionButton.gd" id="3_uan3m"]
 [ext_resource type="Texture2D" uid="uid://chkl3f2nf7b4" path="res://textures/Menu/Button-Options.png" id="4_g8coh"]
-[ext_resource type="Texture2D" uid="uid://8nu4a8mq7nfu" path="res://textures/Alvie/Version.png" id="6_goby7"]
+[ext_resource type="Script" path="res://back.gd" id="5_545ou"]
 [ext_resource type="Texture2D" uid="uid://d12vlmx0cdy5w" path="res://textures/Menu/Button-Exit.png" id="6_r4c6a"]
+[ext_resource type="Script" path="res://optionsButton.gd" id="7_sakgt"]
+[ext_resource type="Texture2D" uid="uid://derwahs4uvba" path="res://textures/Cauldron/PHex-Cauldron-back.png" id="9_ddled"]
+[ext_resource type="Texture2D" uid="uid://cqg1ugiudaum2" path="res://textures/Cauldron/PHex-Cauldron-front.png" id="10_emy8o"]
 
-[node name="MainMenu" type="MarginContainer"]
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8ivto")
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_i6y7h")
+volume_db = -11.815
+parameters/looping = false
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 1278.0
+offset_bottom = 719.0
+texture = ExtResource("1_k2lat")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+offset_left = -1280.0
+offset_top = -1.0
+offset_bottom = 719.0
+texture = ExtResource("1_k2lat")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1152.0
+offset_top = 249.0
+offset_right = -1098.0
+offset_bottom = 272.0
+text = "Sound:"
+
+[node name="Back" type="Button" parent="Label"]
+custom_minimum_size = Vector2(300, 75)
+offset_left = -11.0
+offset_top = 159.0
+offset_right = 289.0
+offset_bottom = 234.0
+icon = ExtResource("4_g8coh")
+flat = true
+expand_icon = true
+script = ExtResource("5_545ou")
+
+[node name="Label2" type="Label" parent="Label"]
+offset_left = -1.0
+offset_top = 78.0
+offset_right = 53.0
+offset_bottom = 101.0
+text = "FOV Slider"
+
+[node name="HSlider" type="HSlider" parent="Label/Label2"]
+offset_top = 30.0
+offset_right = 220.0
+offset_bottom = 69.0
+value = 75.0
+
+[node name="HSlider" type="HSlider" parent="Label"]
+offset_top = 30.0
+offset_right = 220.0
+offset_bottom = 69.0
+min_value = -72.0
+max_value = 0.0
+value = -9.0
+script = ExtResource("3_qf7g6")
+bus_name = "Master"
+
+[node name="Label" type="Label" parent="Label"]
+offset_left = 449.0
+offset_top = -25.0
+offset_right = 587.0
+offset_bottom = 180.0
+text = "Code by Alvie
+@Scaryprod
+
+Art by Twiranux
+@Twiranux
+
+Sound by Garfball
+Garfield Himself"
+vertical_alignment = 1
+
+[node name="MainMenu" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = -80.0
-offset_right = 60.0
-offset_bottom = 80.0
+offset_top = 2.0
+offset_right = 1278.0
+offset_bottom = 717.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 120
@@ -24,28 +106,24 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("1_iuwbt")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/HBoxContainer"]
 layout_mode = 2
 
-[node name="title" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+[node name="title" type="TextureRect" parent="MainMenu/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_twsij")
 stretch_mode = 2
 
-[node name="MenuOptions" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="MenuOptions" type="VBoxContainer" parent="MainMenu/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 2
 theme_override_constants/separation = 30
 
-[node name="StartGame" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="StartGame" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 size_flags_vertical = 8
@@ -56,16 +134,15 @@ expand_icon = true
 script = ExtResource("3_uan3m")
 SceneTarget = "res://backpack.tscn"
 
-[node name="Options" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Options" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 icon = ExtResource("4_g8coh")
 flat = true
 expand_icon = true
-script = ExtResource("3_uan3m")
-type = 1
+script = ExtResource("7_sakgt")
 
-[node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Exit" type="Button" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 icon = ExtResource("6_r4c6a")
@@ -74,15 +151,47 @@ expand_icon = true
 script = ExtResource("3_uan3m")
 type = 2
 
-[node name="versionlabel" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Label" type="Label" parent="MainMenu/HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
-texture = ExtResource("6_goby7")
-stretch_mode = 4
+text = "Code by Alvie
+Art by Twiranux
+Sound by Garfball"
+vertical_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/HBoxContainer"]
 layout_mode = 2
 
-[node name="logo" type="TextureRect" parent="HBoxContainer/CenterContainer"]
+[node name="logo" type="TextureRect" parent="MainMenu/HBoxContainer/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("1_o6262")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 560.0
+offset_top = 553.0
+offset_right = 715.0
+offset_bottom = 668.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_emy8o")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.621739
+anchor_right = 0.5
+anchor_bottom = 0.621739
+offset_left = -78.0
+offset_top = -72.0
+offset_right = 77.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_ddled")
+metadata/_edit_use_anchors_ = true

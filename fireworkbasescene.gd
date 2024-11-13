@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func _startEmission() -> void:
 	$Rising.emitting = true;
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

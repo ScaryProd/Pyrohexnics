@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsmwy53lia6ej"]
+
+[ext_resource type="Texture2D" uid="uid://4hqohlfecwi" path="res://textures/Cauldron/RuptiousCore-sprite.png" id="1_n26of"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yjpo"]
+atlas = ExtResource("1_n26of")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi2nn"]
+atlas = ExtResource("1_n26of")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e7xx"]
+atlas = ExtResource("1_n26of")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfghj"]
+atlas = ExtResource("1_n26of")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrpqu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yjpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi2nn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e7xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfghj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xrpqu")
+frame_progress = 0.925185
